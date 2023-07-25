@@ -1,6 +1,4 @@
 <?php
-
-include_once "logMG.php";
 $GLOBALS["conn"]=null;
 
 
@@ -22,19 +20,15 @@ $GLOBALS["conn"] = new mysqli($servername, $username, $password, $dbname);
 // Check connection
   if ($GLOBALS["conn"]->connect_error) {
     die("Connection failed: " . $GLOBALS["conn"]->connect_error);
-
-
-    # DEBUG
-    logMG(1,"conectarse","Conexión fallida",$GLOBALS["conn"]->connect_error);
-
-   
+    echo"Conexión fallida";
+    echo $GLOBALS["conn"]->connect_error;
     return(0);
   }
 
   else
   {
-    # DEBUG
-    logMG(1,"conectarse","|conectado!!!|");
+    
+    echo "|conectado!!!|";
     return(1);
   }
 }

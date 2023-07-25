@@ -1,7 +1,5 @@
 
 <?php
-
-
 //-------------------------SELECT INICIO
 // VARIABLES PARA SELECT       $columnas,$tabla,$where
 //
@@ -12,15 +10,12 @@
 
     //-----------------------------------------SEPARADOR
 
-include_once "logMG.php";
-
-
 
 function seleccionar($columnas,$tabla,$where,$SQL="")
 {
   if($SQL=="")
   {
-        
+        //echo"<p>SELECT BORRAME  holis entre aca</p>";
         if($where=='')
         {
         $sql = "SELECT ".$columnas." FROM ".$tabla;
@@ -35,35 +30,24 @@ function seleccionar($columnas,$tabla,$where,$SQL="")
     $sql=$SQL;
   }
 
-        # DEBUG
-        logMG(1,"select",$sql);
-        
+        echo "SELECT:".$sql;
 
         $GLOBALS["result"] = mysqli_query($GLOBALS["conn"],$sql);
 
-        if($GLOBALS["result"])       
-        {
+
+
         if (mysqli_num_rows($GLOBALS["result"]) > 0) {
 
-          # DEBUG
-          logMG(1,"select","select exitoso");
-          
+
+          echo "select exitoso|";
           return(1);
         }
         else
         {
-          # DEBUG
-          logMG(1,"select","error 098");
-          mysqli_free_result($GLOBALS["result"]);
+          
           return(0);
         }
-        }
-        else 
-        {
-          # DEBUG
-          logMG(1,"select","error 079: NO result");
-          return (0);
-        }
+
 
 
 }

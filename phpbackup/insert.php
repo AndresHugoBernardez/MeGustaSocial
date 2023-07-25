@@ -1,5 +1,5 @@
 <?php
-
+include_once "logMG.php";
 
 function insertar($tablaColumnas,$values)
 {
@@ -16,11 +16,15 @@ $sql = "INSERT INTO ".$tablaColumnas." VALUES ".$values;
 
 if ($GLOBALS["conn"]->query($sql) === TRUE) {
 
-    echo "New record created successfully|";
+    # DEBUG
+    logMG(1,"insert","Nuevo Registro Actualizado");
+    
     return(1);
 }
 else
 {
+    # DEBUG
+    logMG(1,"insertar","Falla al insertar Registro");
     return(0);
 }
 

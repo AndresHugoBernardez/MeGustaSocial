@@ -1,11 +1,10 @@
 
 <?php
 
-include_once "logMG.php";
 include_once "conectar.php";
 include_once "conectarfin.php";
 include_once "insert.php";
-
+include_once "insertfin.php";
 
 
 function insertarDB($tablaColumnas,$values)
@@ -18,14 +17,12 @@ $connected=conectarse();
     {
         if(insertar($tablaColumnas,$values))
             {
-            # DEBUG
-            logMG(2,"insertar","Nuevo Registro Insertado");
+            echo "Elemento Insertado";
             $Flag_return=1;
             } 
         else
         {
-            # DEBUG
-            logMG(2,"insertar","Falla al insertar nuevo Registro");
+            echo "Problema al insertar elemento";
             $Flag_return=0;
         }
 
@@ -34,11 +31,9 @@ $connected=conectarse();
 
     return ($Flag_return);
 }
-
-    PRUEBA:
-    $GLOBALS["debugNivel"]=1;
-    $tablaColumnas=" `login`(`id`,`usuario`,`password`,`sessionpassword`)";
-    $values="('12','laurita','789789','44444')";
-    insertarDB($tablaColumnas,$values);
-
+/*
+// PRUEBA:
+ //   $tablaColumnas=" `login`(`id`,`usuario`,`password`,`sessionpassword`)";
+  //  $values="('5','tomas','789789','44444')";
+  //  insertarDB($tablaColumnas,$values);*/
 ?>

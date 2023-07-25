@@ -1,7 +1,5 @@
 <?php
 
-include_once "logMG.php";
-
 //
 function update($tabla,$settings,$where)
 {
@@ -13,18 +11,16 @@ function update($tabla,$settings,$where)
 //
 //
 
+//UPDATE MyGuests SET lastname='Doe' WHERE id=2
 $sql = "UPDATE ".$tabla." SET ".$settings." WHERE ".$where;
 
 if ($GLOBALS["conn"]->query($sql) === TRUE) {
 
-    #DEBUG
-    logMG(1,"actualizar","logrado");
+    echo "New record created successfully|";
     return(1);
 }
 else
 {
-    #DEBUG
-    logMG(1,"actualizar","error");
     return(0);
 }
 

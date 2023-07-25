@@ -1,14 +1,12 @@
 
 <?php
 
-include_once "logMG.php";
 include_once "conectar.php";
 include_once "select.php";
 include_once "selectfin.php";
 include_once "conectarfin.php";
 
 
-$GLOBALS["debugNivel"]=1;
 
 $connected=conectarse();
 

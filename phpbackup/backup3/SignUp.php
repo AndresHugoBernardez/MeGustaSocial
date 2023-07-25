@@ -1,6 +1,5 @@
 <?php
 
-include_once "logMG.php";
 include_once "conectar.php";
 include_once "conectarfin.php";
 include_once "select.php";
@@ -28,16 +27,14 @@ if(conectarse())
             
                 
                 {
-                    #SALIDA
-                    echo "usuario en uso!!!";
+
+                    echo "usuario en uso1!!!";
                     cerrarSeleccion(1);
                     $flagUsuario=0;
                 }
                 else
                 {
                     $flagUsuario=1;
-
-                    #SALIDA
                     echo "usuario disponible";
                 }
             
@@ -74,41 +71,27 @@ if($flagUsuario)
             $numeroRandom=rand(1000,99999);
             $tablaColumnas=" `login`(`id`,`usuario`,`password`,`sessionpassword`)";
             $values="(".$ultimoID.",'".$usuario."','".$pass."','".$numeroRandom."')";
-
-            # DEBUG
-            logMG(3,"SignUp",$tabla,$values);
-            
+            echo $tabla.$values;
             if(insertar($tablaColumnas,$values))
 
 
 
             {
             //FASE: iniciar sesión
-                # DEBUG
-                logMG(3,"SignUp","nuevo usuario insertado",$values);
-                
-                
+                echo "nuevo usuario insertado:".$values;
+
 
                 $_SESSION["usuario"]=$usuario;
                 $_SESSION["id"]=$ultimoID;
                 $_SESSION["sessionpass"]=strval($numeroRandom);
 
 
-                # DEBUG
-                logMG(3,"SignUp","Sesion Iniciada",$_SESSION["usuario"],$_SESSION["id"], $_SESSION["sessionpass"]);
-              
-                #SALIDA
-                echo "Nuevo usuario Insertado";
-
+              printf(" Sesion iniciada:%s,%d,%s...",$_SESSION["usuario"],$_SESSION["id"], $_SESSION["sessionpass"]);
 
             }
             }
             else
             {
-                 # DEBUG
-                 logMG(3,"SignUp","Error en las claves");
-
-                #SALIDA
                 echo "Error las claves no coinciden!!!";
             }
 
@@ -132,7 +115,6 @@ desconectar();
 
 
 session_start();
-$GLOBALS["debugNivel"]=1;
 
-SignUp("hugo","123123","123123");
+SignUp("guillermo","123123","123123");
 ?>

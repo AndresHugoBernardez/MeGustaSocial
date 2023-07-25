@@ -1,6 +1,5 @@
 <?php
 
-include_once "logMG.php";
 include_once "select.php";
 include_once "selectfin.php";
 include_once "conectar.php";
@@ -20,7 +19,6 @@ function login($usuario,$password)
     if(conectarse())
     {
 
-            $returnFLAG=0;
             $columnas='`id`,`usuario`,`password`';
             $tabla='`login`';
             $where="`usuario`='".$usuario."'";
@@ -32,10 +30,7 @@ function login($usuario,$password)
             // Fetch row
             $row=mysqli_fetch_row($GLOBALS["result"]);
 
-            # DEBUG
-            logMG(1,"login","0:".$row[0]."1:".$usuario.":".$row[1]."2:".$password.":".$row[2]);
-
-            
+            echo "<br>0:".$row[0]."1:".$usuario.":".$row[1]."2:".$password.":".$row[2];
             //FASE:  verificar que sean iguales
             if(($usuario==$row[1])&&($password==$row[2]))
             {
@@ -57,24 +52,19 @@ function login($usuario,$password)
                     $_SESSION["id"]=$row[0];
                     $_SESSION["sessionpass"]=strval($randomNumber);
 
-                    # DEBUG
-                    logMG(3,"login","usuario logueado");
                     echo "|usuario logeado|";
-                    $returnFLAG=1;
+                    return(1);
                 }
                 else
                 {
-                    # DEBUG
-                    logMG(3,"login","|>error numero 634<|");
-                    $returnFLAG=0;
-                    
+                    echo "|>error numero 634<|";
                 }
 
 
             }
             else
             {
-                $returnFLAG=0;
+                return(0);
             }
 
           
@@ -97,7 +87,6 @@ function login($usuario,$password)
     {
 
     }
-    return($returnFLAG);
 }
 
 
@@ -107,7 +96,7 @@ session_start();
 //ejemplo
 
 
-$GLOBALS["debugNivel"]=1;
+
 login("andres","123123");
 
 ?>

@@ -1,6 +1,5 @@
 <?php
 
-include_once "logMG.php";
 include_once "conectar.php";
 include_once "conectarfin.php";
 include_once "actualizar.php";
@@ -17,15 +16,11 @@ function actualizarDB($tabla,$settings,$where)
     {
         if(update($tabla,$settings,$where))
             {
-            # DEBUG
-            logMG(2,"actualizarDB","Elemento actualizados");
-            
+            echo "Elemento actualizados";
             } 
         else
         {
-            # DEBUG
-            logMG(2,"actualizarDB","Problema al actualizar elemento");
-            
+            echo "Problema al actualizar elemento";
         }
 
         desconectar();
@@ -33,11 +28,7 @@ function actualizarDB($tabla,$settings,$where)
 
 }
 /*
-
-
 // PRUEBA:
-
-    $GLOBALS["debugNivel"]=1;
     $randomNumber=rand(1000,99999);
     $tabla="`login`";
     $settings="`sessionpassword`='".$randomNumber."'";

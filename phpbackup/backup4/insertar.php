@@ -18,13 +18,13 @@ $connected=conectarse();
     {
         if(insertar($tablaColumnas,$values))
             {
-            #DEBUG
+            # DEBUG
             logMG(2,"insertar","Nuevo Registro Insertado");
             $Flag_return=1;
             } 
         else
         {
-            #DEBUG
+            # DEBUG
             logMG(2,"insertar","Falla al insertar nuevo Registro");
             $Flag_return=0;
         }

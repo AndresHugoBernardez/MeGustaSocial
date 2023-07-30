@@ -16,7 +16,7 @@ include_once "logMG.php";
 
 
 
-function seleccionar($columnas,$tabla,$where="",$SQL="")
+function seleccionar($columnas,$tabla,$where,$SQL="")
 {
   if($SQL=="")
   {
@@ -35,7 +35,7 @@ function seleccionar($columnas,$tabla,$where="",$SQL="")
     $sql=$SQL;
   }
 
-        #DEBUG
+        # DEBUG
         logMG(1,"select",$sql);
         
 
@@ -45,14 +45,14 @@ function seleccionar($columnas,$tabla,$where="",$SQL="")
         {
         if (mysqli_num_rows($GLOBALS["result"]) > 0) {
 
-          #DEBUG
+          # DEBUG
           logMG(1,"select","select exitoso");
           
           return(1);
         }
         else
         {
-          #DEBUG
+          # DEBUG
           logMG(1,"select","error 098");
           mysqli_free_result($GLOBALS["result"]);
           return(0);
@@ -60,7 +60,7 @@ function seleccionar($columnas,$tabla,$where="",$SQL="")
         }
         else 
         {
-          #DEBUG
+          # DEBUG
           logMG(1,"select","error 079: NO result");
           return (0);
         }

@@ -16,14 +16,14 @@ $sql = "INSERT INTO ".$tablaColumnas." VALUES ".$values;
 
 if ($GLOBALS["conn"]->query($sql) === TRUE) {
 
-    #DEBUG
+    # DEBUG
     logMG(1,"insert","Nuevo Registro Actualizado");
     
     return(1);
 }
 else
 {
-    #DEBUG
+    # DEBUG
     logMG(1,"insertar","Falla al insertar Registro");
     return(0);
 }

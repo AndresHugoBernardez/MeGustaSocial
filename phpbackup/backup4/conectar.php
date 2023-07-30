@@ -24,7 +24,7 @@ $GLOBALS["conn"] = new mysqli($servername, $username, $password, $dbname);
     die("Connection failed: " . $GLOBALS["conn"]->connect_error);
 
 
-    #DEBUG
+    # DEBUG
     logMG(1,"conectarse","Conexión fallida",$GLOBALS["conn"]->connect_error);
 
    
@@ -33,7 +33,7 @@ $GLOBALS["conn"] = new mysqli($servername, $username, $password, $dbname);
 
   else
   {
-    #DEBUG
+    # DEBUG
     logMG(1,"conectarse","|conectado!!!|");
     return(1);
   }

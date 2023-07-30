@@ -11,7 +11,6 @@ include_once "insert.php";
 function SignUp($usuario,$pass,$pass2)
 {
     $flagUsuario=0;
-    $flagReturn=0;
 
 //FASE: verificar que el usuario no esté en uso
 
@@ -100,7 +99,7 @@ if($flagUsuario)
               
                 #SALIDA
                 echo "Nuevo usuario Insertado";
-                $flagReturn=1;
+
 
             }
             }
@@ -111,7 +110,6 @@ if($flagUsuario)
 
                 #SALIDA
                 echo "Error las claves no coinciden!!!";
-                $flagReturn=0;
             }
 
 
@@ -128,13 +126,13 @@ if($flagUsuario)
 desconectar();
 }
 
-return($flagReturn);
+
 
 }
 
-/*
-//session_start();
-//$GLOBALS["debugNivel"]=1;
 
-//SignUp("hugo","123123","123123");*/
+session_start();
+$GLOBALS["debugNivel"]=1;
+
+SignUp("hugo","123123","123123");
 ?>

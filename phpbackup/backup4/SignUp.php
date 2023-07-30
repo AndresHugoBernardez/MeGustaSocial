@@ -11,7 +11,6 @@ include_once "insert.php";
 function SignUp($usuario,$pass,$pass2)
 {
     $flagUsuario=0;
-    $flagReturn=0;
 
 //FASE: verificar que el usuario no esté en uso
 
@@ -76,7 +75,7 @@ if($flagUsuario)
             $tablaColumnas=" `login`(`id`,`usuario`,`password`,`sessionpassword`)";
             $values="(".$ultimoID.",'".$usuario."','".$pass."','".$numeroRandom."')";
 
-            #DEBUG
+            # DEBUG
             logMG(3,"SignUp",$tabla,$values);
             
             if(insertar($tablaColumnas,$values))
@@ -85,7 +84,7 @@ if($flagUsuario)
 
             {
             //FASE: iniciar sesión
-                #DEBUG
+                # DEBUG
                 logMG(3,"SignUp","nuevo usuario insertado",$values);
                 
                 
@@ -95,23 +94,22 @@ if($flagUsuario)
                 $_SESSION["sessionpass"]=strval($numeroRandom);
 
 
-                #DEBUG
+                # DEBUG
                 logMG(3,"SignUp","Sesion Iniciada",$_SESSION["usuario"],$_SESSION["id"], $_SESSION["sessionpass"]);
               
                 #SALIDA
                 echo "Nuevo usuario Insertado";
-                $flagReturn=1;
+
 
             }
             }
             else
             {
-                 #DEBUG
+                 # DEBUG
                  logMG(3,"SignUp","Error en las claves");
 
                 #SALIDA
                 echo "Error las claves no coinciden!!!";
-                $flagReturn=0;
             }
 
 
@@ -128,13 +126,13 @@ if($flagUsuario)
 desconectar();
 }
 
-return($flagReturn);
+
 
 }
 
-/*
-//session_start();
-//$GLOBALS["debugNivel"]=1;
 
-//SignUp("hugo","123123","123123");*/
+session_start();
+$GLOBALS["debugNivel"]=1;
+
+SignUp("hugo","123123","123123");
 ?>

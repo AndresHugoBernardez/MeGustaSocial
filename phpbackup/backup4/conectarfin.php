@@ -8,8 +8,8 @@ function desconectar()
 
 $GLOBALS["conn"]->close();
 
-#DEBUG
-logMG(1,"desconectar","ok");
+# DEBUG
+logMG(1,"desconectar");
 
 }
 

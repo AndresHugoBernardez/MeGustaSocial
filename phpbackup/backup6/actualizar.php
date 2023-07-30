@@ -1,7 +1,9 @@
 <?php
+
 include_once "logMG.php";
 
-function insertar($tablaColumnas,$values)
+//
+function update($tabla,$settings,$where)
 {
 
 //  ----------------------INSERT INTO
@@ -10,21 +12,19 @@ function insertar($tablaColumnas,$values)
 //
 //
 //
-$sql = "INSERT INTO ".$tablaColumnas." VALUES ".$values;
 
-
+$sql = "UPDATE ".$tabla." SET ".$settings." WHERE ".$where;
 
 if ($GLOBALS["conn"]->query($sql) === TRUE) {
 
     #DEBUG
-    logMG(1,"insert","Nuevo Registro Actualizado");
-    
+    logMG(1,"actualizar","logrado");
     return(1);
 }
 else
 {
     #DEBUG
-    logMG(1,"insertar","Falla al insertar Registro");
+    logMG(1,"actualizar","error");
     return(0);
 }
 

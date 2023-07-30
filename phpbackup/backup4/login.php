@@ -32,7 +32,7 @@ function login($usuario,$password)
             // Fetch row
             $row=mysqli_fetch_row($GLOBALS["result"]);
 
-            #DEBUG
+            # DEBUG
             logMG(1,"login","0:".$row[0]."1:".$usuario.":".$row[1]."2:".$password.":".$row[2]);
 
             
@@ -57,16 +57,14 @@ function login($usuario,$password)
                     $_SESSION["id"]=$row[0];
                     $_SESSION["sessionpass"]=strval($randomNumber);
 
-                    #DEBUG
+                    # DEBUG
                     logMG(3,"login","usuario logueado");
-
-                    #SALIDA
                     echo "|usuario logeado|";
                     $returnFLAG=1;
                 }
                 else
                 {
-                    #DEBUG
+                    # DEBUG
                     logMG(3,"login","|>error numero 634<|");
                     $returnFLAG=0;
                     
@@ -103,99 +101,13 @@ function login($usuario,$password)
 }
 
 
-
-function loginconected($usuario,$password)
-{
-
-
-//FASE:   buscar en db login id, usuario, password, sessionpassword where usuario=solicitado
-
-
-
-
-            $returnFLAG=0;
-            $columnas='`id`,`usuario`,`password`';
-            $tabla='`login`';
-            $where="`usuario`='".$usuario."'";
-
-            if(seleccionar($columnas,$tabla,$where))
-            {
-
-
-            // Fetch row
-            $row=mysqli_fetch_row($GLOBALS["result"]);
-
-            #DEBUG
-            logMG(1,"login","0:".$row[0]."1:".$usuario.":".$row[1]."2:".$password.":".$row[2]);
-
-            
-            //FASE:  verificar que sean iguales
-            if(($usuario==$row[1])&&($password==$row[2]))
-            {
-
-
-                //FASE: Actualizar sessionpassword
-
-                $randomNumber=rand(1000,99999);
-                $tabla="`login`";
-                $settings="`sessionpassword`='".$randomNumber."'";
-                $where="`id`=".$row[0];
-
-                if(update($tabla,$settings,$where))
-                {
-
-                    //FASE: Actualizar $_SESSION
-                    
-                    $_SESSION["usuario"]=$row[1];
-                    $_SESSION["id"]=$row[0];
-                    $_SESSION["sessionpass"]=strval($randomNumber);
-
-                    #DEBUG
-                    logMG(3,"login","usuario logueado");
-
-                    #SALIDA
-                    echo "|usuario logeado|";
-                    $returnFLAG=1;
-                }
-                else
-                {
-                    #DEBUG
-                    logMG(3,"login","|>error numero 634<|");
-                    $returnFLAG=0;
-                    
-                }
-
-
-            }
-            else
-            {
-                $returnFLAG=0;
-            }
-
-          
-
-
-            
-            //limpiar row
-            unset($row);
-            
-        
-            cerrarSeleccion(1);
-            } 
-
-
-    
-    return($returnFLAG);
-}
-
-
-//session_start();
+session_start();
 
 
 //ejemplo
 
 
-//$GLOBALS["debugNivel"]=1;
-//login("german","456456");
+$GLOBALS["debugNivel"]=1;
+login("andres","123123");
 
 ?>

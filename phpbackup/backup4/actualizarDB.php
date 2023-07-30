@@ -17,13 +17,13 @@ function actualizarDB($tabla,$settings,$where)
     {
         if(update($tabla,$settings,$where))
             {
-            #DEBUG
+            # DEBUG
             logMG(2,"actualizarDB","Elemento actualizados");
             
             } 
         else
         {
-            #DEBUG
+            # DEBUG
             logMG(2,"actualizarDB","Problema al actualizar elemento");
             
         }

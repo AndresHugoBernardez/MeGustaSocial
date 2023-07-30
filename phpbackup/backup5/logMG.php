@@ -15,7 +15,6 @@
 */
 //
 
-
 function logMG($Nivel,$log="",$variable1="",$variable2="",$variable3="",$variable4="",$variable5="",$variable6="")
 {
 
@@ -61,14 +60,6 @@ function logMG($Nivel,$log="",$variable1="",$variable2="",$variable3="",$variabl
 
 
     }
-/*
-    unset($log);
-    unset($variable1);
-    unset($variable2);
-    unset($variable3);
-    unset($variable4);
-    unset($variable5);
-    unset($variable6);*/
 }
 
 

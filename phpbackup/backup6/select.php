@@ -74,7 +74,7 @@ while($row = mysqli_fetch_row($GLOBALS["result"])) {
 }
 
 
-
+asdfasd;
 
         // Buscar un único valor
         mysqli_data_seek($GLOBALS["result"],14);

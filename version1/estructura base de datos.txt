@@ -1,0 +1,21 @@
+BASE DE DATOS
+
+tabla:login
+
+columnas:id(int)  usuario(varchar(50))   password(varchar(50))    sessionpassword(varchar(50)) 
+
+
+tabla:entidades
+
+columnas:idente(int)   entidad(varchar(50))   likes(int)
+
+
+tabla:megusta
+
+columnas: id(int)  idente(int)
+
+
+
+
+
+INSERT INTO `entidades` (`idente`, `entidad`, `likes`) VALUES ('1', 'naranja', '0'),('2', 'banana', '0'),('3', 'manzana', '0'),('4', 'pera', '0'),('5', 'mandarina', '0'),('6', 'frutilla', '0'),('7', 'pomelo', '0'),('8', 'kiwi', '0'),('9', 'uvas', '0'),('10', 'ciruela', '0'),('11', 'durazno', '0'),('12', 'ananá', '0'),('13', 'cereza', '0'),('14', 'sandía', '0'),('15', 'limón', '0'),('16', 'frambuesa', '0'),('17', 'arándanos', '0'),('18', 'damazco', '0'),('19', 'naranja', '0'),('20', 'granada', '0');
